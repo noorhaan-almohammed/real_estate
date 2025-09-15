@@ -10,7 +10,7 @@ interface BaseSelectField {
   placeholder: string;
   required?: boolean;
   options?: string[];
-  icon:ReactNode;
+  icon?:ReactNode;
 }
 
 const SelectField: React.FC<{ field: BaseSelectField }> = ({ field }) => {
@@ -45,9 +45,9 @@ const SelectField: React.FC<{ field: BaseSelectField }> = ({ field }) => {
         <button
           type="button"
           onClick={() => setIsOpen(!isOpen)}
-          className="w-full bg-Grey-10 text-White placeholder:text-Grey-40 border border-Grey-15 rounded-md xl:rounded-lg px-5 py-4 xl:py-6 text-sm/[20px] xl:text-lg/[20px] outline-none focus:border-Purple-60 transition-all duration-200 flex items-center justify-between"
+          className="w-full bg-Grey-10 text-White placeholder:text-Grey-40 border border-Grey-15 rounded-md xl:rounded-lg px-3.5 md:px-4 xl:px-5 py-4 xl:py-6 text-sm/[20px] xl:text-lg/[20px] outline-none focus:border-Purple-60 transition-all duration-200 flex items-center justify-between"
         >
-          <span className={selectedOption ? "text-White" : "dark:text-Grey-40 text-[#8f88a4]"}>
+          <span className={`${selectedOption ? "text-White" : "dark:text-Grey-40 text-[#8f88a4]"} whitespace-nowrap`}>
             {selectedOption || field.placeholder}
           </span>
           <div className="flex items-center gap-2">
@@ -62,7 +62,7 @@ const SelectField: React.FC<{ field: BaseSelectField }> = ({ field }) => {
                 key={index}
                 type="button"
                 onClick={() => handleOptionSelect(option)}
-                className="w-full px-5 py-3 xl:py-4 text-left text-sm/[20px] xl:text-lg/[20px] text-White hover:bg-Grey-15 transition-colors duration-200 first:rounded-t-md xl:first:rounded-t-lg last:rounded-b-md xl:last:rounded-b-lg"
+                className="w-full px-3.5 md:px-4 xl:px-5 py-3 xl:py-4 text-left text-sm/[20px] xl:text-lg/[20px] text-White hover:bg-Grey-15 transition-colors duration-200 first:rounded-t-md xl:first:rounded-t-lg last:rounded-b-md xl:last:rounded-b-lg"
               >
                 {option}
               </button>
